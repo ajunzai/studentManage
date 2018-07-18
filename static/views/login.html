@@ -40,17 +40,17 @@
         <div class="panel panel-primary panel-login">
           <div class="panel-heading">登入学生管理系统</div>
           <div class="panel-body">
-            <form class="form-horizontal" method="POST" action="/login">
+            <form class="form-horizontal" method="POST" act00ion="/login">
               <div class="form-group">
                 <label for="userName" class="col-sm-2 control-label">用户名</label>
                 <div class="col-sm-10">
-                  <input type="text" name="userName" class="form-control" id="userName" placeholder="请输入用户名">
+                  <input type="text" name="userName" value="权志龙" class="form-control" id="userName" placeholder="请输入用户名">
                 </div>
               </div>
               <div class="form-group">
                 <label for="userPass" class="col-sm-2 control-label">密码</label>
                 <div class="col-sm-10">
-                  <input type="password" name="userPass" class="form-control" id="userPass" placeholder="请输入密码">
+                  <input type="password" name="userPass" class="form-control" id="c" value="111" placeholder="请输入密码">
                 </div>
               </div>
               <div class="form-group">
@@ -83,6 +83,7 @@
 <script src="../lib/js/jquery-1.12.4.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="../lib/js/bootstrap.min.js"></script>
+<script src="../lib/js/jquery.md5.js"></script>
 <script>
   $(function () {
     // 两次设置的url是一致
@@ -92,6 +93,12 @@
       // 重新赋值 src属性即可
 
       $(this).attr("src", `/login/captchaImg.png?${Math.random()}`);
+    })
+    $("form button[type=submit]").click(function (event) {
+      let oldPass = $("#userPass").val();
+      // 加盐(加多了一些 额外的字符串 增加密码的安全性)
+      let md5 = $.md5(oldPass, 'keyboard cat');
+      $("#userPass").val(md5);
     })
   })
 </script>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="../lib/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        .navbar-right .my-logout {
+            font-size: 22px;
+            color: #ff2d2d;
+            font-weight: 700;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                                aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#">欢迎进入后台管理</a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <p class="navbar-text navbar-right">欢迎[{{userName}}]登录
+                                <a href="/logout" class="navbar-link my-logout">退出</a>
+                            </p>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="list-group">
+                    <a href="#" class="list-group-item active">
+                        学生管理
+                    </a>
+                    <a href="#" class="list-group-item">系统管理</a>
+                    <a href="#" class="list-group-item">用户管理</a>
+                    <a href="#" class="list-group-item">修改密码</a>
+                    <a href="#" class="list-group-item">退出系统</a>
+                </div>
+            </div>
+            <!-- 列表 -->
+            <div class="col-md-8 list-box">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <ol class="breadcrumb">
+                            <li>
+                                <a href="#">首页</a>
+                            </li>
+                            <li>
+                                <a href="#">学生管理</a>
+                            </li>
+                            <li class="active">学生列表</li>
+                        </ol>
+                    </div>
+                    <div class="panel-heading">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">学生姓名</div>
+                                    <input type="text" name="userName" class="form-control" id="exampleInputAmount" placeholder="请输入学生姓名进行查询">
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-search btn-success">查找</button>
+                            <button type="submit" class="btn-show-add btn btn-success">新增</button>
+                        </form>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>姓名</th>
+                                    <th>年龄</th>
+                                    <th>性别</th>
+                                    <th>手机号码</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>胡海娟</td>
+                                    <td>13</td>
+                                    <td>不确定</td>
+                                    <td>13052052052</td>
+                                    <td>
+                                        <a href="#" class="btn btn-success btn-xs">编辑</a>
+                                        |
+                                        <a href="#" class="btn btn-danger btn-xs">删除</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- 新增和修改 -->
+            <div class="col-md-8 add-box hidden">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <ol class="breadcrumb">
+                            <li>
+                                <a href="#">首页</a>
+                            </li>
+                            <li>
+                                <a href="#">学生管理</a>
+                            </li>
+                            <li class="active">学生列表</li>
+                        </ol>
+                    </div>
+
+                    <div class="panel-body">
+                        <form action="" method="post" class="form-horizontal">
+                            <div class="form-group">
+                                <label for="name" class="col-sm-2 control-label">姓名</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="name" value="" id="name" placeholder="请输入姓名">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="age" class="col-sm-2 control-label">年龄</label>
+                                <div class="col-sm-10">
+                                    <input type="Number" class="form-control" name="age" value="" id="age" placeholder="请输入年龄">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="sex" class="col-sm-2 control-label">性别</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="sex" value="" id="sex" placeholder="请输入性别">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" class="col-sm-2 control-label">电话</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="phone" value="" id="phone" placeholder="请输入电话">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="address" class="col-sm-2 control-label">地址</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="address" value="" id="address" placeholder="请输入地址">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="introduction" class="col-sm-2 control-label">简介</label>
+                                <div class="col-sm-10">
+                                    <textarea style="width: 550px;height: 220px" id="introduction" name="introduction" placeholder="请输入简介"></textarea>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn-contorl btn btn-default">修改</button>
+                                    <a href="javascript:void(0)" class="btn btn-warning">取消</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="../lib/js/jquery-1.12.4.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../lib/js/bootstrap.min.js"></script>
+<!-- 
+    index.art 是最初定义的模板页面
+    经由服务器渲染
+    服务器使用的模板引擎也是art-template
+    在服务器中已经把这些坑填充了 浏览器获取结果是 这个模板已经 不存在
+ -->
+<!-- <script src="../lib/js/template-web.js"></script>
+<script type="text/html" id="list">
+    {{each data}}
+    <tr data-id="{{$value._id}}">
+        <td>{{$value.name}}</td>
+        <td>{{$value.age}}</td>
+        <td>{{$value.sex}}</td>
+        <td>{{$value.phone}}</td>
+        <td>
+            <a href="#" class="btn btn-success btn-xs">编辑</a>
+            |
+            <a href="#" class="btn btn-danger btn-xs">删除</a>
+        </td>
+    </tr>
+    {{/each}}-->
+</script>
+<script>
+    $(function () {
+        // 点击新增出现新增盒子 原本的列表盒子隐藏
+        $(".btn-show-add").click(function (event) {
+            event.preventDefault();
+            $(".list-box").addClass("hidden");
+            $(".add-box").removeClass("hidden").find("button[type=submit]").addClass("btn-danger").text(
+                "新增");
+        })
+        // 点击 还原 原本的显示
+        $("a.btn-warning").click(function () {
+            $(".list-box").removeClass("hidden");
+            $(".add-box").addClass("hidden");
+        })
+        // 点击新增按钮 调用新增接口 增加数据
+        $(".btn-contorl").click(function (event) {
+            event.preventDefault();
+            if ($(this).text() == "新增") {
+                $.ajax({
+                    url: "/index/insert",
+                    data: $(".add-box form").serialize(),
+                    type: "GET",
+                    success: function (backData) {
+                        // console.log(backData);
+                        // 关闭新增界面
+                        getData();
+                        // 显示列表区域
+                        $("a.btn-warning").click();
+                    }
+                })
+            } else {
+                // 格式化数据
+                let sendData = $('.add-box form').serialize();
+                // 拼接id上去
+                sendData += `&id=${$(this).data("id")}`;
+                $.ajax({
+                    url: "/index/update",
+                    data: sendData,
+                    type: "get",
+                    success: function (backData) {
+                        console.log(backData);
+                        getData();
+                        // 显示列表区域
+                        $("a.btn-warning").click();
+                    }
+                })
+            }
+        })
+        // 查询逻辑
+        $(".btn-search").click(function () {
+            let userName = $("#exampleInputAmount").val();
+            $.ajax({
+                url: "/index/search",
+                data: {
+                    userName
+                },
+                //   type:"",
+                success: function (backData) {
+                    console.log(backData);
+                    render(backData);
+                }
+            })
+        })
+
+        // 删除逻辑
+        $('.list-box tbody').on('click', '.btn-danger', function () {
+            if (window.confirm('你真的要这样嘛')) {
+                let id = $(this).parent().parent().data("id");
+                $.ajax({
+                    url: "/index/delete",
+                    data: {
+                        id
+                    },
+                    // type: "",
+                    success: function (backData) {
+                        console.log(backData);
+                        getData();
+                    }
+                })
+            } else {
+                alert("好样的")
+            }
+        })
+
+        // 编辑逻辑 -进入编辑状态
+        $('.list-box tbody').on("click", "a.btn-success", function () {
+            let id = $(this).parent().parent().data("id");
+            $.ajax({
+                url: "/index/search",
+                data: {
+                    id
+                },
+                success: function (backData) {
+                    console.log(backData);
+                    $(".list-box").addClass("hidden");
+                    $('.add-box').removeClass("hidden");
+                    // 返回的对象是json 可以遍历出来放进form表单元素中
+                    let data = backData.list[0];
+                    for (const key in data) {
+                        $(`.add-box form input[name=${key}]`).val(data[key]);
+                    }
+                    // 存id 方便后面修改
+                    $('.add-box form button[type=submit]').attr("data-id", data._id);
+                }
+            })
+        })
+
+
+        // 页面打开 获取数据 渲染数据到页面上
+        getData();
+
+        //抽取函数 根据模板渲染页面 传入自己的数据
+        function render(backData) {
+            let totalStr = "";
+            for (let i = 0; i < backData.list.length; i++) {
+                totalStr +=
+                    `
+                    <tr data-id="${backData.list[i]._id}">
+                        <td>${backData.list[i].name}</td>
+                        <td>${backData.list[i].age}</td>
+                        <td>${backData.list[i].sex}</td>
+                        <td>${backData.list[i].phone}</td>
+                        <td>
+                            <a href="#" class="btn btn-success btn-xs">编辑</a>
+                            |
+                            <a href="#" class="btn btn-danger btn-xs">删除</a>
+                        </td>
+                    </tr>
+                    `
+            }
+            $('.list-box tbody').html(totalStr);
+        }
+
+
+
+        function getData() {
+            $.ajax({
+                url: "/index/list",
+                //   data:{},
+                //   type:"",
+                success: function (backData) {
+                    // console.log(backData);
+                    // 导入模板引擎 art-template
+                    // 定义模板
+                    // 渲染页面
+                    // var result = template("list", backData);
+                    // console.log(result);
+                    let totalStr = "";
+                    for (let i = 0; i < backData.data.length; i++) {
+                        totalStr +=
+                            `
+                    <tr data-id="${backData.data[i]._id}">
+                        <td>${backData.data[i].name}</td>
+                        <td>${backData.data[i].age}</td>
+                        <td>${backData.data[i].sex}</td>
+                        <td>${backData.data[i].phone}</td>
+                        <td>
+                            <a href="#" class="btn btn-success btn-xs">编辑</a>
+                            |
+                            <a href="#" class="btn btn-danger btn-xs">删除</a>
+                        </td>
+                    </tr>
+                    `
+                    }
+                    $('.list-box tbody').html(totalStr);
+                }
+            })
+        }
+    })
+</script>
